@@ -1,5 +1,5 @@
-import Auto from "./Auto.js";
+import Controller from "./controller/Controller.js";
 
 $(function () {
-  new Auto();
+  new Controller();
 });

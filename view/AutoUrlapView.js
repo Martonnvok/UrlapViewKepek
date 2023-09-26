@@ -33,7 +33,7 @@ class AutoUrlapView {
   }
 
   #kattintasTrigger(esemenyNev) {
-    const E = new CustomEvent(esemenyNev, { detail: this.#adat });
+    const E = new CustomEvent(esemenyNev, { detail: {...this.#adat} });
     window.dispatchEvent(E);
   }
 }
