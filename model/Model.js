@@ -1,10 +1,12 @@
-import { KEPEKLISTA } from "../adatok.js";
+import { KEPEKLISTA, KISKEPEK } from "../adatok.js";
 
 class Model {
   #kepLista = [];
+  #kisKep =[];
   #id;
   constructor() {
     this.#kepLista = KEPEKLISTA;
+    this.#kisKep = KISKEPEK;
     this.#id = 0;
   }
 
@@ -14,6 +16,10 @@ class Model {
 
   getAktKep(){
     return this.#kepLista[this.#id]
+  }
+
+  getKisKep(){
+    return this.#kisKep[this.#id]
   }
 
   getID(){

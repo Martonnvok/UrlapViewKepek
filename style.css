@@ -15,6 +15,11 @@ body{
     display: flex;
 }
 
+#kisIMG{
+    width: 200px;
+    height: 200px;
+}
+
 #nagyIMG{
     margin:auto;
     border-radius: 10px;
