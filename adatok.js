@@ -1,7 +1,7 @@
 
 export const KEPEKLISTA = [
-    "kepek/virag1.png",
-    "kepek/virag2.webp",
+    "kepek/meme2.png",
+    "kepek/meme1.jpg",
     "kepek/virag3.png",
     "kepek/virag4.jfif"
 ]
