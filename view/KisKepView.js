@@ -1,42 +1,38 @@
-
 class KisKepView {
-    #kep
+    #kep = []
 
     constructor(szuloElem, kep) {
         this.#kep = kep;
         this.szuloElem = szuloElem;
-        this.kisKepNagy = false; 
+        this.kisKepNagy = false;
 
         this.#htmlLetrehozasa();
-        this.nagyitElem = $("#nagyit");
         this.kisIMGElem = $("#kisIMG");
-        this.kisIMGElem.on("click", () => {
-            if (this.kisKepNagy) {
-                this.#esemenyTrigger("nagyit");
-                this.kisKepElemBeallit("500px"); 
-                this.kisKepNagy = false;
-            } else {
-                this.kisKepElemBeallit("200px"); 
-                this.kisKepNagy = true;
-            }
+        
+        this.szuloElem.on("click", ".fokeplesz", (event) => {
+            const index = $(event.target).attr("index");
+            this.#esemenyTrigger("nagykep", index);
         });
     }
 
-    kisKepElemBeallit(kepekMeret) { 
+    kisKepElemBeallit(kepekMeret) {
         this.kisIMGElem.css({ width: kepekMeret, height: kepekMeret });
     }
 
     #htmlLetrehozasa() {
         let txt = `<div class="kisKepTarolo">`;
-        txt += `<button id="nagyit"><img id="kisIMG" src="kepek/meme1.jpg" alt="Kép 1"></button>`;
+        for (let i = 0; i < this.#kep.length; i++) {
+            txt += `<button class="fokeplesz" index="${i}"><img id="kisIMG" src="${this.#kep}" alt="${this.#kep}"></button>`;
+        }
+
         txt += `</div>`;
 
         console.log(txt)
         this.szuloElem.html(txt)
     }
 
-    #esemenyTrigger(esemenyNev) {
-        const E = new CustomEvent(esemenyNev);
+    #esemenyTrigger(esemenyNev, index) {
+        const E = new CustomEvent(esemenyNev, { detail: index });
         window.dispatchEvent(E);
     }
 }
